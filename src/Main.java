@@ -5,7 +5,7 @@ import java.util.Random;
 // nesse caso, para meios meramente ilustrativos, o apostador sempre vai apostar tudo o que ele tem, podendo perder tudo ou duplicar o dinheiro
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) { //
 
 
         for (int i = 1; i <= 10; i++) {
