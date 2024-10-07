@@ -10,22 +10,22 @@ public class Main {
 
         for (int i = 1; i <= 10; i++) {
 
-            String nomeApostador = "Apostador " + i; // Nome do apostador baseado na iteração
+            String nomeApostador = "Apostador " + i;
             RodandoApostador rodandoApostador = new RodandoApostador(nomeApostador);
-            Thread thread = new Thread(rodandoApostador); // Passando o Runnable para uma Thread
-            thread.start(); // Iniciando a thread
+            Thread thread = new Thread(rodandoApostador);
+            thread.start();
 
         }
     }
 }
 class RodandoApostador implements Runnable {
 
-    private String nome; // Atributo para armazenar o nome do apostador
-    private double apostador = 300; // Saldo inicial do apostador
-    private Random random = new Random(); // Instância do gerador de números aleatórios
+    private String nome;
+    private double apostador = 300;
+    private Random random = new Random();
     private static double saldoBanca = 0;  // Atributo estático compartilhado por todas as threads para o saldo da banca
 
-    public RodandoApostador(String nome) { // Construtor que aceita o nome do apostador
+    public RodandoApostador(String nome) {
         this.nome = nome;
     }
 
@@ -43,7 +43,7 @@ class RodandoApostador implements Runnable {
             if (numeroAleatorio > 49){ //quando ele perde
                 System.out.print(nome + " perdeu uma, saldo era " + apostador + " agora é ");
 
-                atualizarBanca(+apostador); // Atualiza o saldo da banca quando o apostador perde
+                atualizarBanca(+apostador);
                 apostador= apostador - apostador;
 
                 System.out.println(apostador);
@@ -55,7 +55,7 @@ class RodandoApostador implements Runnable {
 
                 System.out.print(nome + " ganhou uma, saldo era " + apostador + " agora é ");
 
-                atualizarBanca(-apostador); // Atualiza o saldo da banca quando o apostador ganha
+                atualizarBanca(-apostador);
                 apostador= apostador + apostador;
 
                 System.out.println(apostador);
