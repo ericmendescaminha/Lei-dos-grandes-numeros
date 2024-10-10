@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) { //
 
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 10; i++) { //
 
             String nomeApostador = "Apostador " + i; // Nome do apostador baseado na iteração
             RodandoApostador rodandoApostador = new RodandoApostador(nomeApostador);
