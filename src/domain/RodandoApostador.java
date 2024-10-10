@@ -1,23 +1,10 @@
-import java.util.Random;
+package domain;
 
+import java.util.Random;
 // codigo feito para provar a lei dos grandes numeros, o que prova que a casa de apostas nunca sai perdendo se tiver tempo o suficiente
 // nesse caso, para meios meramente ilustrativos, o apostador sempre vai apostar tudo o que ele tem, podendo perder tudo ou duplicar o dinheiro
 
-public class Main {
-    public static void main(String[] args) { //
-
-
-        for (int i = 1; i <= 10; i++) { //
-
-            String nomeApostador = "Apostador " + i; // Nome do apostador baseado na iteração
-            RodandoApostador rodandoApostador = new RodandoApostador(nomeApostador);
-            Thread thread = new Thread(rodandoApostador); // Passando o Runnable para uma Thread
-            thread.start(); // Iniciando a thread
-
-        }
-    }
-}
-class RodandoApostador implements Runnable {
+public class RodandoApostador implements Runnable {
 
     private String nome; // Atributo para armazenar o nome do apostador
     private double apostador = 300; // Saldo inicial do apostador
