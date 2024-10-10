@@ -1,21 +1,19 @@
 package domain;
 
 import java.util.Random;
-// codigo feito para provar a lei dos grandes numeros, o que prova que a casa de apostas nunca sai perdendo se tiver tempo o suficiente
-// nesse caso, para meios meramente ilustrativos, o apostador sempre vai apostar tudo o que ele tem, podendo perder tudo ou duplicar o dinheiro
 
 public class RodandoApostador implements Runnable {
 
-    private String nome; // Atributo para armazenar o nome do apostador
-    private double apostador = 300; // Saldo inicial do apostador
-    private Random random = new Random(); // Instância do gerador de números aleatórios
-    private static double saldoBanca = 0;  // Atributo estático compartilhado por todas as threads para o saldo da banca
+    private String nome;
+    private double apostador = 300;
+    private Random random = new Random();
+    private static double saldoBanca = 0;
 
-    public RodandoApostador(String nome) { // Construtor que aceita o nome do apostador
+    public RodandoApostador(String nome) {
         this.nome = nome;
     }
 
-    private synchronized void atualizarBanca(double valor) { // Método sincronizado para atualizar o saldo da banca de forma segura
+    private synchronized void atualizarBanca(double valor) {
         saldoBanca += valor;
     }
 
@@ -26,10 +24,10 @@ public class RodandoApostador implements Runnable {
 
             int numeroAleatorio = random.nextInt(100) + 1;
 
-            if (numeroAleatorio > 49){ //quando ele perde
+            if (numeroAleatorio > 49){
                 System.out.print(nome + " perdeu uma, saldo era " + apostador + " agora é ");
 
-                atualizarBanca(+apostador); // Atualiza o saldo da banca quando o apostador perde
+                atualizarBanca(+apostador);
                 apostador= apostador - apostador;
 
                 System.out.println(apostador);
@@ -37,11 +35,11 @@ public class RodandoApostador implements Runnable {
                 System.out.println("Saldo da banca atualizado: " + saldoBanca);
             }
 
-            if (numeroAleatorio <= 49){ // quando ele ganha
+            if (numeroAleatorio <= 49){
 
                 System.out.print(nome + " ganhou uma, saldo era " + apostador + " agora é ");
 
-                atualizarBanca(-apostador); // Atualiza o saldo da banca quando o apostador ganha
+                atualizarBanca(-apostador);
                 apostador= apostador + apostador;
 
                 System.out.println(apostador);
