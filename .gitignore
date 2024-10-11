@@ -1,8 +1,5 @@
 ### IntelliJ IDEA ###
 out/
-/.idea
-/.gitignore
-/22. Casa de apostas.iml
 
 ### Eclipse ###
 .apt_generated
@@ -28,3 +25,4 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+/out/
